@@ -1,0 +1,24 @@
+[General]
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, localhost, *.local, captive.apple.com, *.ru
+dns-server = 1.1.1.1, 8.8.8.8, system
+always-real-ip = stun.l.google.com
+doh-server = https://doh.pub/dns-query
+
+[Proxy]
+
+[Proxy Group]
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/Yoshintame/blocking-bypass-configs/main/ru.ruleset,SelectGroup
+
+# LAN
+DOMAIN-SUFFIX,local,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+IP-CIDR,100.64.0.0/10,DIRECT
+
+# Final
+GEOIP,CN,DIRECT
+FINAL,DIRECT
